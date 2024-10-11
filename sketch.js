@@ -1,31 +1,46 @@
 let flock = [];
 let started = false;
+const WIDTH = 800;
+const HEIGHT = 600;
 
 let alignSlider, cohestionSlider, seperationSlider;
 function setup(){
-  positionX = 20;
-  createCanvas(800, 600);
+  let startX = 50;
+  let paddingXSlider = 50;
+  let paddingXText = 35;
+  let yLabel = HEIGHT+ 150;
+  let yTextLabel = yLabel +10;
+
+  createCanvas(WIDTH, HEIGHT).style('border-radius', '20px');
   background(255);
 
+  //sliders
   alignSlider = createSlider(0.5, 2.0, 1, 0.1);
-  alignSlider.position(positionX, height +50);
-  createP('Alignment').position(alignSlider.x, alignSlider.y -30);
-
   cohestionSlider = createSlider(0.5, 2.0, 1, 0.1);
-  cohestionSlider.position(positionX +150, height +50);
-  createP('Cohesion').position(cohestionSlider.x , cohestionSlider.y -30);
-
   seperationSlider = createSlider(0.5, 2.0, 1, 0.1);
-  seperationSlider.position(positionX + 300, height+ 50);
-  createP('Separation').position(seperationSlider.x, seperationSlider.y -30);
 
-  let resetButton = createButton('Reset');
-  resetButton.position(positionX + 450, height+ 50);
-  resetButton.mousePressed(reset);
-  
+  //position
+  let sliderWidth = alignSlider.elt.offsetWidth;
+  alignSlider.position(startX, yLabel);
+  cohestionSlider.position(startX + sliderWidth + paddingXSlider,  yLabel);
+  seperationSlider.position(startX + 2* sliderWidth +2* paddingXSlider, yLabel);
+
+  //labels
+  createP('Flow').position(startX, yTextLabel).style('color', 'white');
+  createP('Community').position(startX + sliderWidth + 1.5*paddingXText, yTextLabel).style('color', 'white');
+  createP('Conflict').position(startX + 2* sliderWidth +3* paddingXText, yTextLabel).style('color', 'white');
+
+  //buttons
   let startButton = createButton('Start');
-  startButton.position(positionX + 550, height+ 50);
+  let resetButton = createButton('Reset');
+
+  //position
+  startButton.position(WIDTH -200, yLabel);
+  resetButton.position(WIDTH-50, yLabel);
+
+  //interaction
   startButton.mousePressed(start);
+  resetButton.mousePressed(reset);
 }
 
 //maybe have a start button?
