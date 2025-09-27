@@ -1,17 +1,18 @@
 let flock = [];
 let started = false;
-const WIDTH = 800;
-const HEIGHT = 600;
+export const ScreenWidth = 800;
+export const ScreenHeight = 600;
 
 let alignSlider, cohestionSlider, seperationSlider;
 function setup(){
+
   let startX = 50;
   let paddingXSlider = 50;
   let paddingXText = 35;
-  let yLabel = HEIGHT+ 150;
+  let yLabel = ScreenHeight+ 150;
   let yTextLabel = yLabel +10;
 
-  createCanvas(WIDTH, HEIGHT).style('border-radius', '20px');
+  createCanvas(ScreenWidth, ScreenHeight).style('border-radius', '20px');
   background(255);
 
   //sliders
@@ -35,8 +36,8 @@ function setup(){
   let resetButton = createButton('Reset');
 
   //position
-  startButton.position(WIDTH -200, yLabel);
-  resetButton.position(WIDTH-50, yLabel);
+  startButton.position(ScreenWidth -200, yLabel);
+  resetButton.position(ScreenWidth-50, yLabel);
 
   //interaction
   startButton.mousePressed(start);
@@ -69,5 +70,6 @@ function draw(){
     boid.update();
     boid.show();
   }
+
   
 }

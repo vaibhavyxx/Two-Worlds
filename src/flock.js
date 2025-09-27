@@ -1,36 +1,6 @@
-class BoidOptimized {
-    constructor(){
-      this.position = createVector(random(width), random(height));
-      //with just this code, random2D gives a direction vector
-      //of mag 1 so it looks circular, 
-      //if you want more variance in it, 
-      //the next line of code can do it
-      this.velocity = p5.Vector.random2D();
-      this.velocity.setMag(random(0, 3));  //gives variance
-      this.acceleration = createVector();
-      this.maxForce = 1;
-      this.maxSpeed = 4;
-      this.radius = random(20);
-    }
-    
-    //it does not leave the screen
-    edges(){
-        //sides
-        if(this.position.x > width){
-            this.position.x =0;
-        }else if(this.position.x <0){
-            this.position.x = width;
-        }
-
-        //top and bottom
-        if(this.position.y > height){
-            this.position.y =0;
-        }else if(this.position.y <0){
-            this.position.y = height;
-        }
-    }
-
-    //steer to avoid crowding from local flockmate
+//Contains cohesion, align and separation script
+class Flock {
+        //steer to avoid crowding from local flockmate
     separation(boids){
         let perceptionRadius = 80; //have a high value so that they are united
         let steering = createVector();
@@ -138,9 +108,4 @@ class BoidOptimized {
       this.acceleration.mult(0);  // Reset acceleration to 0 after each update
     }
     
-    show(){
-      strokeWeight(10);
-      stroke(255);
-      point(this.position.x, this.position.y);
-    }
-  }
+}
