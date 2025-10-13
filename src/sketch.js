@@ -1,11 +1,11 @@
 import {boids, Flock} from './flock.js';
 
-//let started = false;
-let ScreenWidth = 800;
-let ScreenHeight = 600;
+let margin = 50;
 
 window.setup = function(){
-  let cnv = createCanvas(ScreenWidth, ScreenHeight).style('border-radius', '20px');
+  const ScreenWidth = windowWidth - margin;
+  const ScreenHeight = windowHeight - margin;
+  let cnv = createCanvas(ScreenWidth,ScreenHeight).style('border-radius', '20px');
   cnv.parent('sim');
   background(255);
 
