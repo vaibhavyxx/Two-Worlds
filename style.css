@@ -8,7 +8,7 @@ button{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     padding: 10px;
     border-radius: 20px;
-    background-color:rgb(48, 45, 45);
+    background-color:rgba(239, 236, 236, 0.482);
     color: white;
 }
 footer{

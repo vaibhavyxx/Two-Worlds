@@ -1,4 +1,5 @@
 import { Boid } from "./boids.js";
+
 export let boids = [];
 //Contains cohesion, align and separation script
 export class Flock {
