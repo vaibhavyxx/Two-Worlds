@@ -1,6 +1,6 @@
-import { ScreenHeight, ScreenWidth } from "../sketch";
+//import { ScreenHeight, ScreenWidth } from "./sketch";
 
-class Boid {
+export class Boid {
     constructor(ScreenWidth, ScreenHeight, maxForce, maxSpeed){
       this.position = createVector(random(ScreenWidth), random(ScreenHeight));
       this.velocity = p5.Vector.random2D();
@@ -12,8 +12,8 @@ class Boid {
     }
 
     offScreen(){
-      this.offScreenAxis('x', ScreenWidth);
-      this.offScreenAxis('y', ScreenHeight);
+      this.offScreenAxis('x', this.ScreenWidth);
+      this.offScreenAxis('y', this.ScreenHeight);
     }
     show(){
       strokeWeight(this.radius);

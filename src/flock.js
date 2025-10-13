@@ -1,7 +1,21 @@
+import { Boid } from "./boids.js";
+export let boids = [];
 //Contains cohesion, align and separation script
-class Flock {
+export class Flock {
+  
+  constructor(totalBoids, ScreenWidth, ScreenHeight){
+    this.ScreenWidth = ScreenWidth;
+    this.ScreenHeight = ScreenHeight;
+
+    for(let i=0; i < totalBoids; i++){
+      boids.push(new Boid(this.ScreenWidth, this.ScreenHeight, 10, 10));
+      console.log("index: "+ i);
+      //boids[i].update();
+      //boids[i].draw();
+    }
+  }
         //steer to avoid crowding from local flockmate
-    separation(boids){
+    /*separation(boids){
         let perceptionRadius = 80; //have a high value so that they are united
         let steering = createVector();
         let total =0;
@@ -106,6 +120,6 @@ class Flock {
       this.velocity.add(this.acceleration);
       this.velocity.limit(this.maxSpeed);
       this.acceleration.mult(0);  // Reset acceleration to 0 after each update
-    }
+    }*/
     
 }

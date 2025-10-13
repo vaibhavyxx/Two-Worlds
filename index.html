@@ -5,14 +5,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
-
+    <script src="./src/sketch.js" type="module"></script>
   </head>
   <body>
-    <main>
+    <header>
       <h1>Two Worlds</h1>
       <p>A take on juggling with two cultures while trying to retain your identity.</p>
+    </header>
+    <main>
+      <div id="sim"></div>
+      <button id="start">start</button>
+      <button id="reset">reset</button>
+
+      <div class="slide-container">
+        <label for="cohesion">Cohesion</label>
+        <input type="range" min="-1" max="1" value="0" step="0.01" class="slider-input" name="cohesion">
+      </div>
+
+      <div class="slide-container">
+        <label for="alignment">Alignment</label>
+        <input type="range" min="-1" max="1" value="0" step="0.01" class="slider-input" name="alignment">
+      </div>
+
+      <div class="slide-container">
+        <label for="Separation">Separation</label>
+        <input type="range" min="-1" max="1" value="0" step="0.01" class="slider-input" name="separation">
+      </div>
+
     </main>
-    <script src="./src/sample.js"></script>
+
     <footer></footer>
   </body>
 </html>

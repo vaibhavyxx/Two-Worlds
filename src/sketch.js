@@ -1,20 +1,25 @@
-let flock = [];
+import {boids, Flock} from './flock.js';
+
 let started = false;
-export const ScreenWidth = 800;
-export const ScreenHeight = 600;
+let ScreenWidth = 800;
+let ScreenHeight = 600;
 
 let alignSlider, cohestionSlider, seperationSlider;
-function setup(){
+window.setup = function(){
+  let cnv = createCanvas(ScreenWidth, ScreenHeight).style('border-radius', '20px');
+  cnv.parent('sim');
+  background(255);
 
+}
+
+  /*//console.log('hello');
   let startX = 50;
   let paddingXSlider = 50;
   let paddingXText = 35;
   let yLabel = ScreenHeight+ 150;
   let yTextLabel = yLabel +10;
 
-  createCanvas(ScreenWidth, ScreenHeight).style('border-radius', '20px');
-  background(255);
-
+  
   //sliders
   alignSlider = createSlider(0.5, 2.0, 1, 0.1);
   cohestionSlider = createSlider(0.5, 2.0, 1, 0.1);
@@ -43,7 +48,7 @@ function setup(){
   startButton.mousePressed(start);
   resetButton.mousePressed(reset);
 }
-
+/*
 //maybe have a start button?
 function reset(){
   background(255);
@@ -52,24 +57,21 @@ function reset(){
 }
 
 function start(){
-  if(!started){
-    for(let i =0; i <50; i++){
-      flock.push(new Boid());
-      flock.push(new Boid()); 
-    }
-
+  /*if(!started){
+    boids = new Flock(10, windowWidth, windowHeight);
     started = true;
+    console.log("boids array is made");
   }
+ 
 }
 //this is flocking
-function draw(){
+window.draw =  function(){
  // background(255);
-  for(let boid of flock){
+  /*for(let boid of flock){
     boid.edges();
     boid.flock(flock);
     boid.update();
     boid.show();
-  }
+  }*/
 
   
-}
