@@ -1,14 +1,40 @@
 import {boids, Flock} from './flock.js';
 
+const startButton = document.querySelector('#start');
+const resetButton = document.querySelector('#reset');
+const cohesion = document.querySelector('#cohesion-id');
+const alignment = document.querySelector('#alignment-id');
+const separation = document.querySelector('#separation-id');
+
 let margin = 50;
+let backgroundColor = 255;
 
 window.setup = function(){
   const ScreenWidth = windowWidth - margin;
   const ScreenHeight = windowHeight - margin;
   let cnv = createCanvas(ScreenWidth,ScreenHeight).style('border-radius', '20px');
   cnv.parent('sim');
-  background(255);
+  background(backgroundColor);
 
+}
+
+startButton.onclick = function(){
+  console.log("Should start");
+}
+resetButton.onclick = function(){
+  background(100);  //testing purposes
+}
+
+cohesion.oninput = function() {
+  console.log('cohesion value: '+ this.value)  //testing purposes
+}
+
+alignment.oninput = function() {
+  console.log('cohesion value: '+ this.value)  //testing purposes
+}
+
+separation.oninput = function() {
+  console.log('cohesion value: '+ this.value)  //testing purposes
 }
 
   /*//console.log('hello');
